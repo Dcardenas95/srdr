@@ -17,20 +17,18 @@
                         <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="font-semibold text-gray-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ingresar</a>
-
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
                         @endif
                     @endauth
                 </div>
             @endif
-            <section class="bg-center bg-no-repeat bg-cover bg-gray-600 bg-blend-multiply" style="background-image: url('{{ asset('img/bg.jpg') }}')">
+            <section class="bg-center bg-no-repeat bg-cover bg-gray-600 bg-blend-multiply" style="background-image: url('{{ asset('img/bg.jpg') }}'); height: 100vh;">
                 <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Invertimos en el potencial del mundo</h1>
                     <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Sistema de Registro de datos de recoleccion</p>
                 </div>
-            </section>
-                     
+            </section>  
         </div>
     </body>
 </html>

@@ -12,11 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password'=> '1234578',
-            'role' > 'admin',
+        $this->call([
+            OperatorSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 class OperatorController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $operators = Operator::all();
+        
+        $operators = Operator::query()
+        ->when($request->search, function ($query, $value) {
+            $query->where('cedula', 'like' ,"%$value%" );
+        })
+        ->orderBy('cedula')
+        ->paginate(20)->withQueryString();
 
         return view('operator.index',
         [

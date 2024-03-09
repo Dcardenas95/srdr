@@ -12,7 +12,7 @@ class Operator extends Model
     protected $fillable = [
         'name',
         'cedula',
-        'lastname',
+        'last_name',
         'email',
         'address',
         'phone',

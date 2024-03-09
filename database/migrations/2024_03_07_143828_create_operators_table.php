@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('cedula');
             $table->string('email')->unique();
-            $table->string('lastname');
+            $table->string('last_name');
             $table->text('address');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('type_blood');
             $table->date('date_contract');
             $table->timestamps();

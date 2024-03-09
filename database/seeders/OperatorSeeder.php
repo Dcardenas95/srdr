@@ -14,15 +14,6 @@ class OperatorSeeder extends Seeder
      */
     public function run(): void
     {
-        Operator::create([
-            'name' => 'alvaro',
-            'cedula' => '1098770978',
-            'lastname'=> 'gonzales barajas',
-            'email' => 'alvaro@gmail.com',
-            'address' => 'calle 95 # 45 - 25',
-            'phone'=> 31854545,
-            'type_blood'=> 'A+',
-            'date_contract'=> '2/01/2024'
-        ]);
+        Operator::factory()->count(100)->create();
     }
 }

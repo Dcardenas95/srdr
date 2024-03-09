@@ -17,7 +17,7 @@
                         <tr class="border-b hover:bg-orange-100 bg-gray-100">
                             <td class="p-3 px-5">{{ $operator->cedula }}</td>
                             <td class="p-3 px-5">{{ $operator->name }}</td>
-                            <td class="p-3 px-5">{{ $operator->lastname }}</td>
+                            <td class="p-3 px-5">{{ $operator->last_name }}</td>
                             <td class="p-3 px-5">{{ $operator->address }}</td>
                             <td class="p-3 px-5">{{ $operator->phone }}</td>
                             <td class="p-3 px-5">{{ $operator->type_blood }}</td>

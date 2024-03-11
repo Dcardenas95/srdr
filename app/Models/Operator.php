@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Operator extends Model
 {
@@ -23,5 +24,12 @@ class Operator extends Model
     protected $casts = [
         'date_contract' => 'date',
     ];
+
+    
+
+    public function operatorDatas():HasMany
+    {
+        return $this->hasMany(OperatorData::class);
+    }
 
 }

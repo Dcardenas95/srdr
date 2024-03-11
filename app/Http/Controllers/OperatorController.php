@@ -34,7 +34,6 @@ class OperatorController extends Controller
     public function store(Request $request)
     {
        
-
         $operator = new Operator();
         $operator->create($request->all());
 

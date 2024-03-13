@@ -7,24 +7,43 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
 {
     
     public function index(Request $request)
     {
-        
-        $operators = Operator::query()
-        ->when($request->search, function ($query, $value) {
-            $query->where('cedula', 'like' ,"%$value%" );
-        })
-        ->orderBy('cedula')
-        ->paginate(20)->withQueryString();
+        if(Auth::user()->role == 'admin'){
 
-        return view('operator.index',
-        [
-            'operators' => $operators 
-        ]);
+                $operators = Operator::query()
+            ->when($request->search, function ($query, $value) {
+                $query->where('cedula', 'like' ,"%$value%" );
+            })
+            ->orderBy('cedula')
+            ->paginate(20)->withQueryString();
+
+            return view('operator.index',
+            [
+                'operators' => $operators 
+            ]);
+        }
+
+        if (Auth::user()->role != 'admin')
+        {
+            $email = Auth::user()->email;
+
+            $operator = Operator::where('email',$email)->first();
+            $operatorDatas = $operator->operatorDatas()->paginate(20);
+
+            return view('operatorData.index' , [
+                'operator' => $operator ,
+                'operatorDatas' =>  $operatorDatas
+            ]);
+
+        }
+
+        
     }
 
   

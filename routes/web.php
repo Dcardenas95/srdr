@@ -37,11 +37,10 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/operariodata/{operator?}', [OperatorDataController::class, 'index'])->name('operatordatas.index');
     Route::get('/operariodata/create/{operator?}', [OperatorDataController::class, 'create'])->name('operatordatas.create');
+    Route::get('/operariodata/{operatorData}/edit', [OperatorDataController::class, 'edit'])->name('operatordatas.edit');
+    Route::put('/operariodata/{operatorData}/update', [OperatorDataController::class, 'update'])->name('operatordatas.update');
+    Route::delete('/operariodata/{operatorData}', [OperatorDataController::class, 'destroy'])->name('operatordatas.destroy');
    
-    // Route::post('/operariodata', [OperatorController::class, 'store'])->name('operators.store');
-    // Route::get('/operariodata/{operator}/edit', [OperatorController::class, 'edit'])->name('operators.edit');
-    // Route::put('/operariodata/{operator}/update', [OperatorController::class, 'update'])->name('operators.update');
-    // Route::delete('/operariodata/{operator}', [OperatorController::class, 'destroy'])->name('operators.destroy');
 });
 
 require __DIR__.'/auth.php';

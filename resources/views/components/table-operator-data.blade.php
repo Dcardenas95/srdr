@@ -17,18 +17,18 @@
                                 <td class="p-3 px-5">{{ $data->fruit_type }}</td>
                                 <td class="p-3 px-5">{{ $data->fruit_weight }}</td>
                                 <td class="p-3 px-5">{{ $data->hours_worked }}</td>
-                                <td class="p-3 px-5">{{ $data->date_collection }}</td>
+                                <td class="p-3 px-5">{{ $data->date_collection->format('d/m/Y') }}</td>
                                 <td class="p-3 px-5">{{ $data->observation }}</td>
                                 <td class="p-3 px-5 flex gap-2">
-                                    <a href="{{ route('operators.edit', $data) }}" class="btn btn-xs btn-info">
+                                    <a href="{{ route('operatordatas.edit', $data) }}" class="btn btn-xs btn-info">
                                         <i class="far fa-edit text-blue-800" style="margin-top: 15px"></i>
                                     </a>
-                                    <form method="POST" action="{{ route('operators.destroy', $data) }}"
+                                    <form method="POST" action="{{ route('operatordatas.destroy', $data) }}"
                                         style="display: inline">
                                         {{ method_field('DELETE') }}
                                         @csrf
                                         <button class="btn btn-xs btn-danger"
-                                            onclick="return confirm('¿ Estás seguro de eliminar el operador con cedula {{ $data->id }} ?')"><i
+                                            onclick="return confirm('¿ Estás seguro de eliminar La informacion  , asociada a este operador?')"><i
                                                 class="fas fa-trash-alt text-red-800" style="margin-top: 15px"></i>
                                             </i></button>
                                     </form>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operator;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OperatorController extends Controller
@@ -35,6 +38,20 @@ class OperatorController extends Controller
     {
        
         $operator = new Operator();
+        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make('12345678'),
+        ]);
+
+        event(new Registered($user));
+
         $operator->create($request->all());
 
         return redirect()->route('operators.index');

@@ -12,8 +12,6 @@ class OperatorDataController extends Controller
     {
         $operatorDatas = $operator->operatorDatas()->paginate(20);
 
-     
-
         return view('operatorData.index' , [
             'operator' => $operator ,
             'operatorDatas' =>  $operatorDatas
@@ -31,8 +29,6 @@ class OperatorDataController extends Controller
     {
         $operatorId = $request->operator_id;
         $operator_ = Operator::find($operatorId);
-       
-        
         $operator = new OperatorData();
 
         $operator->create([
@@ -48,5 +44,41 @@ class OperatorDataController extends Controller
             'operator' => $operator_
         ]);
 
+    }
+
+     
+    public function edit(OperatorData $operatorData)
+    {
+        $operator = Operator::find($operatorData->id);
+
+        return view('operatorData.edit', 
+        [
+            'operator' => $operator ,
+            'operatorData' => $operatorData
+        ]);
+    }
+
+    public function update(Request $request, OperatorData $operatorData)
+    {
+        $operator = Operator::find($request->operator_id);
+        $operatorData->update($request->all());
+
+        return redirect()->route('operatordatas.index', 
+        [
+            'operator' => $operator ,
+            'operatorDatas' => $operatorData
+        ]);
+        
+    }
+
+   
+    public function destroy(OperatorData $operatorData)
+    {
+        $operator = Operator::find($operatorData->operator_id);
+
+        $operatorData->delete();
+        return redirect(route('operatordatas.index', [
+            'operator' => $operator
+        ]));
     }
 }

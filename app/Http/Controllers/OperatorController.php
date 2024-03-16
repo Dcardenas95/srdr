@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class OperatorController extends Controller
 {
@@ -58,10 +59,18 @@ class OperatorController extends Controller
        
         $operator = new Operator();
         
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
+            'cedula'=>['unique:'.Operator::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
         ]);
+    
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         $user = User::create([
             'name' => $request->name,

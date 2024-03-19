@@ -1,6 +1,6 @@
-<div>
+<div class="container">
     <div class="text-gray-900 bg-gray-200">
-        <div class="px-3 py-4 flex justify-center">
+        <div class="overflow-auto rounded-lg shadow">
             <table class="w-full text-md bg-white shadow-md rounded mb-4">
                 <tbody>
                     <tr class="border-b">

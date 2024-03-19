@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorDataController;
+use App\Http\Controllers\OperatorDataReportsExportController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/operario/create', [OperatorController::class, 'create'])->name('operators.create');
     Route::post('/operario', [OperatorController::class, 'store'])->name('operators.store');
     Route::post('/operariodata', [OperatorDataController::class, 'store'])->name('operatordatas.store');
+    Route::get('/operariodata/export', [OperatorDataReportsExportController::class, '__invoke'])->name('operatordatas.export');
     
     Route::get('/operario/{operator}/edit', [OperatorController::class, 'edit'])->name('operators.edit');
     Route::put('/operario/{operator}/update', [OperatorController::class, 'update'])->name('operators.update');
@@ -40,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/operariodata/{operatorData}/edit', [OperatorDataController::class, 'edit'])->name('operatordatas.edit');
     Route::put('/operariodata/{operatorData}/update', [OperatorDataController::class, 'update'])->name('operatordatas.update');
     Route::delete('/operariodata/{operatorData}', [OperatorDataController::class, 'destroy'])->name('operatordatas.destroy');
+
    
 });
 

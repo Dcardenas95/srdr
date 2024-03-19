@@ -34,7 +34,7 @@
                                     {{ method_field('DELETE') }}
                                     @csrf
                                     <button class="btn btn-xs btn-danger"
-                                        onclick="return confirm('¿ Estás seguro de eliminar el operador con cedula {{$operator->cedula}} ?')"
+                                        onclick="return confirm('¿ Estás seguro de eliminar el operador con cedula {{$operator->cedula}} , si elimina el operador los datos asociados a este seran  eliminados?')"
                                     ><i class="fas fa-trash-alt text-red-800" style="margin-top: 15px"></i> </i></button>
                                 </form>
 

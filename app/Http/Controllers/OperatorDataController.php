@@ -74,11 +74,14 @@ class OperatorDataController extends Controller
    
     public function destroy(OperatorData $operatorData)
     {
+        // Guardar mensaje en la sesión
+        session()->flash('error', 'registro Creado!');
         $operator = Operator::find($operatorData->operator_id);
 
         $operatorData->delete();
+
         return redirect(route('operatordatas.index', [
             'operator' => $operator
-        ]));
+        ]))->with('error', session('error')); ;
     }
 }

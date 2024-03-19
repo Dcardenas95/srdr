@@ -21,7 +21,9 @@ return new class extends Migration
             $table->date('date_collection');
             $table->text('observation');
             
-            $table->foreign('operator_id')->references('id')->on('operators');
+            $table->foreign('operator_id')->references('id')
+            ->on('operators')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

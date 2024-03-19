@@ -17,7 +17,7 @@ class OperatorController extends Controller
     {
         if(Auth::user()->role == 'admin'){
 
-                $operators = Operator::query()
+            $operators = Operator::query()
             ->when($request->search, function ($query, $value) {
                 $query->where('cedula', 'like' ,"%$value%" );
             })
@@ -82,7 +82,10 @@ class OperatorController extends Controller
 
         $operator->create($request->all());
 
-        return redirect()->route('operators.index');
+
+        // Guardar mensaje en la sesión
+        session()->flash('success', 'registro Creado!');
+        return redirect()->route('operators.index')->with('success', session('success'));
     }
 
    
@@ -106,7 +109,10 @@ class OperatorController extends Controller
    
     public function destroy(Operator $operator)
     {
+        // Guardar mensaje en la sesión
+        session()->flash('error', 'registro Creado!');
+
         $operator->delete();
-        return redirect(route('operators.index'));
+        return redirect(route('operators.index'))->with('error', session('error'));
     }
 }

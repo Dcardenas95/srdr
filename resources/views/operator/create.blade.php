@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Panel Crear Operario') }}
         </h2>
     </x-slot>
 
@@ -43,7 +43,7 @@
                         </div>
                         <div>
                             <label for="last_name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email (escribir en minúscula)</label>
                             <input type="email" name="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
@@ -52,7 +52,7 @@
                             <label for="message"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dirección</label>
                             <textarea id="message" rows="4" name="address"
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                         </div>
                         <div>
                             <label for="company"

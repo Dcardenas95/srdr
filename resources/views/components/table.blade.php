@@ -34,14 +34,12 @@
                                     {{ method_field('DELETE') }}
                                     @csrf
                                     <button class="btn btn-xs btn-danger"
-                                        onclick="return confirm('¿ Estás seguro de eliminar el operador con cedula {{$operator->cedula}} , si elimina el operador los datos asociados a este seran  eliminados?')"
+                                        onclick="return confirm('¿VAS A ELIMINAR AL OPERADOR CON CEDULA  {{$operator->cedula}}, LOS DATOS ASOCIADOS A ESTE, TAMBIÉN SERÁN ELIMINADOS?')"
                                     ><i class="fas fa-trash-alt text-red-800" style="margin-top: 15px"></i> </i></button>
                                 </form>
 
-                                <a href="{{ route('operatordatas.index', $operator)}}"><button type="button" class="px-3 py-2 text-xs font-medium text-center
-                                 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 
-                                 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700
-                                  dark:focus:ring-blue-800">Ver datos de recolección</button>
+                                <a href="{{ route('operatordatas.index', $operator)}}"><button type="button" class="text-white col-span-full bg-blue-700 hover:bg-green-500  focus:ring-4 focus:outline-none focus:ring-blue-100 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5
+                                    text-center dark:bg-green-700 dark:hover:bg-green-500 dark:focus:ring-blue-100">Ver Datos de Recolección</button>
                                 </a>
 
                             </td>

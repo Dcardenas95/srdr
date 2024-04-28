@@ -31,19 +31,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/operario', [OperatorController::class, 'store'])->name('operators.store');
     Route::post('/operariodata', [OperatorDataController::class, 'store'])->name('operatordatas.store');
     Route::get('/operariodata/export', [OperatorDataReportsExportController::class, '__invoke'])->name('operatordatas.export');
-    
+
     Route::get('/operario/{operator}/edit', [OperatorController::class, 'edit'])->name('operators.edit');
     Route::put('/operario/{operator}/update', [OperatorController::class, 'update'])->name('operators.update');
     Route::delete('/{operator}', [OperatorController::class, 'destroy'])->name('operators.destroy');
-    
-    
+
+
     Route::get('/operariodata/{operator?}', [OperatorDataController::class, 'index'])->name('operatordatas.index');
     Route::get('/operariodata/create/{operator?}', [OperatorDataController::class, 'create'])->name('operatordatas.create');
     Route::get('/operariodata/{operatorData}/edit', [OperatorDataController::class, 'edit'])->name('operatordatas.edit');
     Route::put('/operariodata/{operatorData}/update', [OperatorDataController::class, 'update'])->name('operatordatas.update');
     Route::delete('/operariodata/{operatorData}', [OperatorDataController::class, 'destroy'])->name('operatordatas.destroy');
-
-   
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

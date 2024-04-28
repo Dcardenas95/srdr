@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Panel Principal') }}
         </h2>
     </x-slot>
 
@@ -50,7 +50,7 @@
                                     <div class="flex">
                                         <input type="text" name="search"
                                             class="w-full bg-white pl-2 text-base font-semibold outline-0"
-                                            placeholder="buscar por cedula ..." value="{{ request()->search }}" />
+                                            placeholder="Buscar por Cédula ..." value="{{ request()->search }}" />
                                         <button
                                             class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white 
                                             font-semibold hover:bg-blue-800 transition-colors">
